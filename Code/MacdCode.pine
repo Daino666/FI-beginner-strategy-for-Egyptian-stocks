@@ -1,0 +1,35 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Daino666
+
+//@version=5
+strategy("Fathi Ibrahim starter strategy for Egyptian stocks")
+
+fastL = input(title = "fast length", defval = 12)
+slowL = input(title = "slow length", defval = 26)
+
+signalL = input.int(title = "singal smoothing", defval = 9)
+
+fast_ma = ta.sma(close, fastL)
+slow_ma = ta.sma(close, slowL)
+
+macd = fast_ma- slow_ma
+
+signal = ta.sma(macd, signalL)
+
+
+
+start = timestamp(2020,6,6)
+end = timestamp(2021,4,4)
+
+counter  = 0
+
+if time >= start and time <= end 
+
+    buy =  signal < macd  and counter == 0 
+    
+    strategy.entry("Long", strategy.long, 1000, when = buy)
+    counter +=1
+
+    sell = signal > macd and counter ==1 
+    strategy.close("Long", when = sell )
+    counter -=1
