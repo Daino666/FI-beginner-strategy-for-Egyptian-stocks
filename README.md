@@ -1,8 +1,9 @@
 This is an automated strategy for trading Egyptian stocks using pine script.
 I have to note that this strategy is not complete and it needs a lot of further 
-improvements, I will try to add further improvements every once in a while :)
+improvements to count on it, I will try to add further improvements every once in a while :)
 
 Also I have to note that this strategy only works with up trends in the Egyptian stocks, it will not work good if you used it in a down trend stock
+
 
 feel free to copy the code and test it yourself, i will be more happy with getting feed back :)
 
